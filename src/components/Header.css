@@ -5,17 +5,20 @@
 .header__logo {
 	margin-left: 30px;
 	margin-top: 30px;
-display: flex;
-text-decoration: none;
-flex-direction: row;
-align-items: baseline;
-color: black;
+	display: flex;
+	text-decoration: none;
+	flex-direction: row;
+	align-items: baseline;
+	color: black;
 
 }
 
 .header__title {
-	font-size: 26px;
+	font-size: 28px;
 	margin: 0;
+	line-height: 26px;
+	font-family: "Nunito Bold";
+	font-weight: bold;
 }
 
 .header__image {
