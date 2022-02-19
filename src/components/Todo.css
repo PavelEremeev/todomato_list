@@ -1,0 +1,45 @@
+.todo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 70vh;
+	
+}
+
+.todo__input {
+	height: 40px;
+	width: 35%;
+	border: none;
+	padding: 0 10px;
+	border-bottom: 2px solid white;
+	background: none;
+	color: white;
+	outline: none;
+	font-family: 'Nunito';
+}
+
+.todo__input::placeholder {
+color: white;
+font-family: 'Nunito Light';
+font-weight: 100;
+
+}
+
+.todo__button {
+	margin: 0 10px;
+	cursor: pointer;
+    font-family: 'Nunito';
+    outline: none;
+    color: white;
+    background: none;
+    border: 2px solid white;
+    height: 40px;
+    width: 15%;
+	transition: ease .2s;
+}
+
+.todo__button:hover {
+	color: indianred;
+	transition: ease .2s;
+	background-color: white;
+}
