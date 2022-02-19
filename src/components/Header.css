@@ -1,5 +1,8 @@
 .header {
-
+display: flex;
+flex-direction: row;
+align-items: baseline;
+justify-content: space-between;
 }
 
 .header__logo {
@@ -9,7 +12,7 @@
 	text-decoration: none;
 	flex-direction: row;
 	align-items: baseline;
-	color: black;
+	color: white;
 
 }
 
@@ -17,8 +20,7 @@
 	font-size: 28px;
 	margin: 0;
 	line-height: 26px;
-	font-family: "Nunito Bold";
-	font-weight: bold;
+	font-family: 'Nunito';
 }
 
 .header__image {
@@ -26,5 +28,20 @@
 }
 
 .header__container {
+	margin-right: 30px;
+}
 
+.header__text {
+	font-family: 'Nunito';
+	text-decoration: none;
+	color: white;
+	transition: ease .2s;
+	border: 2px solid white;
+	padding: 5px;
+}
+
+.header__text:hover {
+	color: indianred;
+	transition: ease .2s;
+	background-color: white;
 }
