@@ -1,0 +1,28 @@
+.todo-boards {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	font-family: 'Nunito';
+}
+
+.todo-board {
+	display: flex;
+	flex-direction: column;
+	border: 2px solid white;
+	width: 27%;
+	padding-bottom: 20px;
+
+}
+
+.todo-board__title {
+	color: white;
+	margin: 20px 0;
+	user-select: none;
+	-ms-user-select: none;
+}
+
+.todo-board__task {
+	color: white;
+	font-weight: 100;
+	margin: 5px 0;
+}

@@ -2,44 +2,61 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import Header from './Header';
 import Todo from './Todo';
-import TodoTask from './TodoTask';
+import TodoBoards from './TodoBoards';
+import TodoTask from './TodoBoards';
 
 
-const taskData = JSON.parse(localStorage.getItem('tasks'))
+const todoData = JSON.parse(localStorage.getItem('todo'))
+const inProgressData = JSON.parse(localStorage.getItem('inProgress'))
+const doneData = JSON.parse(localStorage.getItem('done'))
+
 
 function App() {
 
 	const [task, setTask] = useState('')
-	const [localTask, setLocalTask] = useState(taskData || [])
+	const [todo, setTodo] = useState(todoData || [])
+	const [inProgress, setInprogress] = useState(inProgressData || [])
+	const [done, setDone] = useState(doneData || [])
+	const [boards, setBoards] = useState(
+		[{id: 1, title: 'ToDo', tasks: todo},
+		 {id: 2, title: 'В процессе', tasks: inProgress},
+		 {id: 3, title: 'Выполнено', tasks: done},
+		])
+
 
 	useEffect(() => {
-		localStorage.setItem('tasks', JSON.stringify(localTask))
-	}, [localTask])
+		localStorage.setItem('todo', JSON.stringify(todo))
+		localStorage.setItem('inProgress', JSON.stringify(inProgress))
+		localStorage.setItem('done', JSON.stringify(done))
+	}, [todo, inProgress, done])
 
 	const handleChangeTask = (evt) => {
 		setTask(evt.target.value)
 	}
 
+	useEffect(() => {
+		
+	}, [todo])
+
 	const handleNewTask = () => {
 		if (task.trim() !== '') {
 			const newTask = {
 				taskDescription: task,
-				id: Math.random().toString(20),
-				defaultPosition: {
-					x: -100,
-					y: -100
-				}
+				id: Math.random().toString(20)
 			}
-			setLocalTask((localTask) => [...localTask, newTask])
+			setTodo((todo) => [...todo, newTask])
 			setTask('')
 		}
 	}
+
+
+	console.log(boards[0].tasks)
 
   return (
     <div className="App">
 		<Header/>
 		<Todo onChange={handleChangeTask} onClick={handleNewTask} value={task}/>
-		<TodoTask taskData={localTask}/>
+		<TodoBoards todo={todo} boards={boards}/>
     </div>
   );
 }
