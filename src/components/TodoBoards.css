@@ -19,6 +19,7 @@
 	margin: 20px 0;
 	user-select: none;
 	-ms-user-select: none;
+	font-size: 23px;
 }
 
 .todo-board__task {

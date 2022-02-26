@@ -16,7 +16,7 @@
 	color: white;
 	outline: none;
 	font-family: 'Nunito';
-	font-size: 14px;
+	font-size: 20px;
 }
 
 .todo__input::placeholder {
@@ -39,7 +39,7 @@ font-weight: 100;
     width: 10%;
 	min-width: 78px;
 	transition: ease .2s;
-	font-size: 14px;
+	font-size: 20px;
 }
 
 .todo__button:hover {

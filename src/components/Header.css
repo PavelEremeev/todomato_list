@@ -38,7 +38,7 @@ justify-content: space-between;
 	transition: ease .2s;
 	border: 2px solid white;
 	padding: 5px;
-	font-size: 14px;
+	font-size: 18px;
 }
 
 .header__text:hover {
