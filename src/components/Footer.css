@@ -29,7 +29,6 @@
 }
 
 .footer__image:hover {
-	opacity: 0.8;
 	transition: ease .2s;
 	background-color:dodgerblue;
 	border-radius: 50%;
