@@ -10,6 +10,7 @@
 	flex-direction: column;
 	border: 2px solid white;
 	width: 27%;
+	min-height: 250px;
 	padding-bottom: 20px;
 
 }
@@ -25,5 +26,13 @@
 .todo-board__task {
 	color: white;
 	font-weight: 100;
-	margin: 3px;
+    margin: 5px 5px;
+    padding: 5px 0;
+	transition: ease-in .2s;
+	cursor: pointer;
+}
+
+.todo-board__task:hover {
+	background-color: rgba(242, 242, 242, 0.25);;
+	transition: ease-in .2s;
 }
