@@ -1,0 +1,36 @@
+.footer {
+	font-family: 'Nunito';
+}
+
+.footer__container {
+	margin-top: 12vh;
+	margin-right: 3%;
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+	align-items: center;
+}
+
+.footer__date {
+	color: white;
+}
+
+.footer__link {
+	margin-left: 15px;
+	width: 30px;
+	height: 30px;
+}
+
+.footer__image {
+	width: 30px;
+	height: 30px;
+	transition: ease .2s;
+	border-radius: 50%;
+}
+
+.footer__image:hover {
+	opacity: 0.8;
+	transition: ease .2s;
+	background-color:dodgerblue;
+	border-radius: 50%;
+}

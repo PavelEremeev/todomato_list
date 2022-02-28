@@ -3,7 +3,7 @@ import './App.css';
 import Header from './Header';
 import Todo from './Todo';
 import TodoBoards from './TodoBoards';
-import TodoTask from './TodoBoards';
+import Footer from './Footer';
 
 
 const todoData = JSON.parse(localStorage.getItem('todo'))
@@ -57,6 +57,7 @@ function App() {
 		<Header/>
 		<Todo onChange={handleChangeTask} onClick={handleNewTask} value={task}/>
 		<TodoBoards todo={todo} boards={boards}/>
+		<Footer/>
     </div>
   );
 }
