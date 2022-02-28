@@ -6,7 +6,7 @@ justify-content: space-between;
 }
 
 .header__logo {
-	margin-left: 30px;
+	margin-left: 3%;
 	margin-top: 30px;
 	display: flex;
 	text-decoration: none;
@@ -28,7 +28,7 @@ justify-content: space-between;
 }
 
 .header__container {
-	margin-right: 30px;
+	margin-right: 3%;
 }
 
 .header__text {
