@@ -56,7 +56,7 @@ function App() {
     <div className="App">
 		<Header/>
 		<Todo onChange={handleChangeTask} onClick={handleNewTask} value={task}/>
-		<TodoBoards todo={todo} boards={boards}/>
+		<TodoBoards todo={todo} inProgress={inProgress} done={done} boards={boards}/>
 		<Footer/>
     </div>
   );
