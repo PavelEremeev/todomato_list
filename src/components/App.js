@@ -52,11 +52,18 @@ function App() {
 
 	console.log(boards[0].tasks)
 
+
   return (
     <div className="App">
 		<Header/>
 		<Todo onChange={handleChangeTask} onClick={handleNewTask} value={task}/>
-		<TodoBoards todo={todo} inProgress={inProgress} done={done} boards={boards}/>
+		<TodoBoards 
+		todo={todo} 
+		inProgress={inProgress} 
+		done={done} 
+		boards={boards}
+		setBoards={setBoards}
+		/>
 		<Footer/>
     </div>
   );
