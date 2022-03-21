@@ -4,22 +4,23 @@ import './TodoBoards.css';
 
 
 function TodoBoards({todo, inProgress, done, boards, setBoards }) {
+	const todoArr = [todo, inProgress, done]
 	const [currentTask, setCurrentTask] = useState(null)
 	const [currentBoard, setCurrentBoard] = useState(null)
 	
 	const handleDragEnd = (evt) => {
-		evt.target.style.boxShadow = 'none'
+		evt.target.style.borderBottom = 'none'
 	}
 
 	const handleDragOver = (evt) => {
 		evt.preventDefault()
 		if (evt.target.className === 'todo-board__task') {
-			evt.target.style.boxShadow = '0 2px 3px gray'
+			evt.target.style.borderBottom = '2px solid white'
 		}
 	}
 
 	const handleDragLeave = (evt) => {
-		evt.target.style.boxShadow = 'none'
+		evt.target.style.borderBottom = 'none'
 	}
 
 	const handleDragStart = (evt, board, task) => {
@@ -29,6 +30,8 @@ function TodoBoards({todo, inProgress, done, boards, setBoards }) {
 
 	const handleDrop = (evt, board, task) => {
 		evt.preventDefault()
+		evt.stopPropagation()
+		evt.target.style.borderBottom = 'none'
 		const currentIndex = currentBoard.tasks.indexOf(currentTask)
 		currentBoard.tasks.splice(currentIndex, 1)
 		const dropIndex = board.tasks.indexOf(task);
@@ -45,6 +48,7 @@ function TodoBoards({todo, inProgress, done, boards, setBoards }) {
 
 	const handleBoardDrop = (evt, board) => {
 		evt.preventDefault()
+		evt.stopPropagation()
 		board.tasks.push(currentTask)
 		const currentIndex = currentBoard.tasks.indexOf(currentTask)
 		currentBoard.tasks.splice(currentIndex, 1)
@@ -60,47 +64,14 @@ function TodoBoards({todo, inProgress, done, boards, setBoards }) {
 
   return (
     <section className="todo-boards">
-			{/* <div className='todo-board'>
+			{/* <div className='todo-board'
+			 onDragOver={(evt) => handleDragOver(evt)}
+			 onDrop={(evt) => handleBoardDrop(evt, board)}
+			>
 				<h3 className='todo-board__title'>
 				{boards[0].title}
 				</h3>
 				{todo.map((task,i) =>	
-					<div className='todo-board__task' 
-					key={task.id} 
-					draggable={true}
-					onDragOver={(evt) => handleDragOver(evt)}
-					onDragLeave={(evt) => handleDragLeave(evt)}
-					onDragStart={(evt) => handleDragStart(evt, board, task)}
-					onDragEnd={(evt) => handleDragEnd(evt)}
-					onDrop={(evt) => handleDrop(evt)}
-					>
-						{i+1 + '. '}{task.taskDescription}
-						</div>
-					)}
-			</div>
-			<div className='todo-board'>
-				<h3 className='todo-board__title'>
-				{boards[1].title}
-				</h3>
-				{inProgress.map((task,i) =>	
-					<div className='todo-board__task' 
-					key={task.id} 
-					draggable={true}
-					onDragOver={(evt) => handleDragOver(evt)}
-					onDragLeave={(evt) => handleDragLeave(evt)}
-					onDragStart={(evt) => handleDragStart(evt, board, task)}
-					onDragEnd={(evt) => handleDragEnd(evt)}
-					onDrop={(evt) => handleDrop(evt)}
-					>
-						{i+1 + '. '}{task.taskDescription}
-						</div>
-					)}
-			</div>
-			<div className='todo-board'>
-				<h3 className='todo-board__title'>
-				{boards[2].title}
-				</h3>
-				{done.map((task,i) =>	
 					<div className='todo-board__task' 
 					key={task.id} 
 					draggable={true}
@@ -128,7 +99,7 @@ function TodoBoards({todo, inProgress, done, boards, setBoards }) {
 					onDragLeave={(evt) => handleDragLeave(evt)}
 					onDragStart={(evt) => handleDragStart(evt, board, task)}
 					onDragEnd={(evt) => handleDragEnd(evt)}
-					onDrop={(evt) => handleDrop(evt)}						>
+					onDrop={(evt) => handleDrop(evt, board, task)}						>
 						{i+1 + '. '}{task.taskDescription}
 						</div>
 					)}

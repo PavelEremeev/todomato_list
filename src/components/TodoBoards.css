@@ -32,6 +32,10 @@
 	cursor: pointer;
 }
 
+.todo-board__task_active {
+	border-bottom: 2px solid white;
+}
+
 .todo-board__task:hover {
 	background-color: rgba(242, 242, 242, 0.25);;
 	transition: ease-in .2s;
