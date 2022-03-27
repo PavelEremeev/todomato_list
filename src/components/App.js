@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import Header from './Header';
-import Todo from './Todo';
+import NewTask from './NewTask';
 import TodoBoards from './TodoBoards';
 import Footer from './Footer';
 
@@ -28,29 +28,15 @@ function App() {
 		localStorage.setItem('todo', JSON.stringify(todo))
 	}, [todo])
 
-	const handleChangeTask = (evt) => {
-		setTask(evt.target.value)
-	}
+	const handleTaskCreated = (newTask) => {
+		setTodo((todo) => [...todo, newTask])
+	  }
 	
-	const handleNewTask = () => {
-		if (task.trim() !== '') {
-			const newTask = {
-				taskDescription: task,
-				id: Math.random().toString(20)
-			}
-			setTodo((todo) => [...todo, newTask])
-			setTask('')
-		}
-	}
-
-
-	console.log(boards[0].tasks)
-
 
   return (
     <div className="App">
 		<Header/>
-		<Todo onChange={handleChangeTask} onClick={handleNewTask} value={task}/>
+		<NewTask  onTaskCreated={handleTaskCreated}/>
 		<TodoBoards 
 		todo={todo} 
 		inProgress={inProgress} 
@@ -59,6 +45,7 @@ function App() {
 		setBoards={setBoards}
 		setInprogress={setInprogress}
 		setDone={setDone}
+		setTodo={setTodo}
 		/>
 		<Footer/>
     </div>
