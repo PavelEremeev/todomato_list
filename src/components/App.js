@@ -18,26 +18,20 @@ function App() {
 	const [inProgress, setInprogress] = useState(inProgressData || [])
 	const [done, setDone] = useState(doneData || [])
 	const [boards, setBoards] = useState(
-		[{id: 1, title: 'ToDo', tasks: todo},
-		 {id: 2, title: 'В процессе', tasks: inProgress},
-		 {id: 3, title: 'Выполнено', tasks: done},
+		[{id: 1, title: 'ToDo', lsName: 'todo', tasks: todo},
+		 {id: 2, title: 'В процессе', lsName: 'inProgress', tasks: inProgress},
+		 {id: 3, title: 'Выполнено', lsName: 'done', tasks: done},
 		])
 
 
 	useEffect(() => {
 		localStorage.setItem('todo', JSON.stringify(todo))
-		localStorage.setItem('inProgress', JSON.stringify(inProgress))
-		localStorage.setItem('done', JSON.stringify(done))
-	}, [todo, inProgress, done])
+	}, [todo])
 
 	const handleChangeTask = (evt) => {
 		setTask(evt.target.value)
 	}
-
-	useEffect(() => {
-		
-	}, [todo])
-
+	
 	const handleNewTask = () => {
 		if (task.trim() !== '') {
 			const newTask = {
@@ -63,6 +57,8 @@ function App() {
 		done={done} 
 		boards={boards}
 		setBoards={setBoards}
+		setInprogress={setInprogress}
+		setDone={setDone}
 		/>
 		<Footer/>
     </div>

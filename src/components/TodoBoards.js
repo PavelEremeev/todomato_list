@@ -3,13 +3,14 @@ import React, {useState} from 'react';
 import './TodoBoards.css';
 
 
-function TodoBoards({todo, inProgress, done, boards, setBoards }) {
-	const todoArr = [todo, inProgress, done]
+function TodoBoards({todo, inProgress, done, boards, setBoards, setDone, setInprogress }) {
+
 	const [currentTask, setCurrentTask] = useState(null)
 	const [currentBoard, setCurrentBoard] = useState(null)
 	
 	const handleDragEnd = (evt) => {
 		evt.target.style.borderBottom = 'none'
+		
 	}
 
 	const handleDragOver = (evt) => {
@@ -52,6 +53,23 @@ function TodoBoards({todo, inProgress, done, boards, setBoards }) {
 		board.tasks.push(currentTask)
 		const currentIndex = currentBoard.tasks.indexOf(currentTask)
 		currentBoard.tasks.splice(currentIndex, 1)
+
+		// не понимаю почему удаляется целиком весь массив туду из LS вместо одного объекта. в консоли один объект.
+		console.log(currentTask)
+		console.log(currentBoard.lsName)
+		localStorage.removeItem(currentBoard.lsName, JSON.stringify(currentTask))
+		if (board.id === 1) {
+			setInprogress((todo) => [...todo, currentTask])
+			localStorage.setItem('todo', JSON.stringify(todo))
+		}
+		if (board.id === 2) {
+			setInprogress((inProgress) => [...inProgress, currentTask])
+			localStorage.setItem('inProgress', JSON.stringify(inProgress))
+		}
+		if (board.id === 3) {
+			setDone((done) => [...done, currentTask])
+			localStorage.setItem('done', JSON.stringify(done))
+		}
 		setBoards(boards.map(brd => {
 			if (brd.id === board.id) {
 				return board
@@ -85,6 +103,9 @@ function TodoBoards({todo, inProgress, done, boards, setBoards }) {
 						</div>
 					)}
 			</div> */}
+
+
+			{/* не понимаю как прокинуть todo чтобы он обновлялся ? мы же делаем перебор мэп.. */}
 			{boards.map(board => 
 			 <div className='todo-board' key={board.id}
 			 onDragOver={(evt) => handleDragOver(evt)}
@@ -99,7 +120,7 @@ function TodoBoards({todo, inProgress, done, boards, setBoards }) {
 					onDragLeave={(evt) => handleDragLeave(evt)}
 					onDragStart={(evt) => handleDragStart(evt, board, task)}
 					onDragEnd={(evt) => handleDragEnd(evt)}
-					onDrop={(evt) => handleDrop(evt, board, task)}						>
+					onDrop={(evt) => handleDrop(evt, board, task)}>
 						{i+1 + '. '}{task.taskDescription}
 						</div>
 					)}
