@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import './TodoBoards.css';
 
 
-function TodoBoards({todo, inProgress, done, boards, setBoards, setDone, setInprogress }) {
+function TodoBoards({todo, inProgress, done, boards, setBoards, setTodo , setDone, setInprogress }) {
 
 	const [currentTask, setCurrentTask] = useState(null)
 	const [currentBoard, setCurrentBoard] = useState(null)
@@ -59,7 +59,7 @@ function TodoBoards({todo, inProgress, done, boards, setBoards, setDone, setInpr
 		console.log(currentBoard.lsName)
 		localStorage.removeItem(currentBoard.lsName, JSON.stringify(currentTask))
 		if (board.id === 1) {
-			setInprogress((todo) => [...todo, currentTask])
+			setTodo((todo) => [...todo, currentTask])
 			localStorage.setItem('todo', JSON.stringify(todo))
 		}
 		if (board.id === 2) {
