@@ -13,7 +13,6 @@ const doneData = JSON.parse(localStorage.getItem('done'))
 
 function App() {
 
-	const [task, setTask] = useState('')
 	const [todo, setTodo] = useState(todoData || [])
 	const [inProgress, setInprogress] = useState(inProgressData || [])
 	const [done, setDone] = useState(doneData || [])
@@ -26,10 +25,12 @@ function App() {
 
 	useEffect(() => {
 		localStorage.setItem('todo', JSON.stringify(todo))
+		setBoards(previousBoards => previousBoards.map(b => b.id === 1 ? {...b, tasks: todo} : b));
 	}, [todo])
 
 	const handleTaskCreated = (newTask) => {
 		setTodo((todo) => [...todo, newTask])
+		
 	  }
 	
 
