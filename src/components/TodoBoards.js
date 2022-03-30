@@ -15,7 +15,7 @@ function TodoBoards({todo, inProgress, done, boards, setBoards, setTodo , setDon
 
 	const handleDragOver = (evt) => {
 		evt.preventDefault()
-		if (evt.target.className === 'todo-board__task') {
+		if (evt.target.className === 'todo-board__task-wrapper') {
 			evt.target.style.borderBottom = '2px solid white'
 		}
 	}
@@ -30,8 +30,8 @@ function TodoBoards({todo, inProgress, done, boards, setBoards, setTodo , setDon
 	}
 
 	const handleDrop = (evt, board, task) => {
-		evt.preventDefault()
 		evt.stopPropagation()
+		evt.preventDefault()
 		evt.target.style.borderBottom = 'none'
 		const currentIndex = currentBoard.tasks.indexOf(currentTask)
 		currentBoard.tasks.splice(currentIndex, 1)
@@ -48,12 +48,11 @@ function TodoBoards({todo, inProgress, done, boards, setBoards, setTodo , setDon
 	}
 
 	const handleBoardDrop = (evt, board) => {
-		evt.preventDefault()
 		evt.stopPropagation()
+		evt.preventDefault()
 		board.tasks.push(currentTask)
 		const currentIndex = currentBoard.tasks.indexOf(currentTask)
 		currentBoard.tasks.splice(currentIndex, 1)
-
 		// не понимаю почему удаляется целиком весь массив туду из LS вместо одного объекта. в консоли один объект.
 		console.log(currentTask)
 		console.log(currentBoard.lsName)
@@ -80,32 +79,15 @@ function TodoBoards({todo, inProgress, done, boards, setBoards, setTodo , setDon
 		}))
 	}
 
+	const handleDeleteTask = (id) => {
+		console.log(id)
+		 setTodo(todo.filter((task) => task.id !== id))
+		 setInprogress(inProgress.filter((task) => task.id !== id))
+		 setDone(done.filter((task) => task.id !== id))
+	}
+
   return (
     <section className="todo-boards">
-			{/* <div className='todo-board'
-			 onDragOver={(evt) => handleDragOver(evt)}
-			 onDrop={(evt) => handleBoardDrop(evt, board)}
-			>
-				<h3 className='todo-board__title'>
-				{boards[0].title}
-				</h3>
-				{todo.map((task,i) =>	
-					<div className='todo-board__task' 
-					key={task.id} 
-					draggable={true}
-					onDragOver={(evt) => handleDragOver(evt)}
-					onDragLeave={(evt) => handleDragLeave(evt)}
-					onDragStart={(evt) => handleDragStart(evt, board, task)}
-					onDragEnd={(evt) => handleDragEnd(evt)}
-					onDrop={(evt) => handleDrop(evt)}
-					>
-						{i+1 + '. '}{task.taskDescription}
-						</div>
-					)}
-			</div> */}
-
-
-			{/* не понимаю как прокинуть todo чтобы он обновлялся ? мы же делаем перебор мэп.. */}
 			{boards.map(board => 
 			 <div className='todo-board' key={board.id}
 			 onDragOver={(evt) => handleDragOver(evt)}
@@ -113,16 +95,25 @@ function TodoBoards({todo, inProgress, done, boards, setBoards, setTodo , setDon
 			 >
 				 <h3 className='todo-board__title'>{board.title}</h3>
 				 {board.tasks.map((task,i) =>	
-					<div className='todo-board__task' 
+					<div className='todo-board__task-wrapper'
 					key={task.id}
 					draggable={true}
 					onDragOver={(evt) => handleDragOver(evt)}
 					onDragLeave={(evt) => handleDragLeave(evt)}
 					onDragStart={(evt) => handleDragStart(evt, board, task)}
 					onDragEnd={(evt) => handleDragEnd(evt)}
-					onDrop={(evt) => handleDrop(evt, board, task)}>
-						{i+1 + '. '}{task.taskDescription}
+					onDrop={(evt) => handleDrop(evt, board, task)}
+					>
+						<div className='todo-board__task-number'>
+						{i+1 + '. '}
 						</div>
+						<div className='todo-board__task'>
+						{task.taskDescription}
+						</div>
+						<button className='todo-board__delete-button' onClick={() => handleDeleteTask(task.id)}>
+							X
+						</button>
+					</div>
 					)}
 			</div>
 			)}

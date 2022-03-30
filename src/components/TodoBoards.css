@@ -23,20 +23,53 @@
 	font-size: 23px;
 }
 
-.todo-board__task {
-	color: white;
-	font-weight: 100;
-    margin: 5px 5px;
-    padding: 5px 0;
+.todo-board__task-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 	transition: ease-in .2s;
 	cursor: pointer;
 }
+
+.todo-board__task {
+	color: white;
+    margin: 5px 5px;
+    padding: 5px 0;
+	transition: ease-in .2s;
+	
+	overflow: hidden;
+}
+
+.todo-board__task-number {
+	color: white;
+	font-weight: 100;
+	padding: 5px 0;
+	margin: 5px 5px;
+}
+
 
 .todo-board__task_active {
 	border-bottom: 2px solid white;
 }
 
-.todo-board__task:hover {
+.todo-board__task-wrapper:hover {
 	background-color: rgba(242, 242, 242, 0.25);;
+	transition: ease-in .2s;
+}
+
+.todo-board__delete-button {
+	border: none;
+	outline: none;
+	background-color: transparent;
+	color: white;
+	cursor: pointer;
+	opacity: 0.5;
+	transition: ease-in .2s;
+}
+
+.todo-board__delete-button:hover {
+	font-weight: 900;
+	color: white;
+	opacity: 1;
 	transition: ease-in .2s;
 }

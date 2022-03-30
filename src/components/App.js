@@ -24,9 +24,11 @@ function App() {
 
 
 	useEffect(() => {
+		
 		localStorage.setItem('todo', JSON.stringify(todo))
 		setBoards(previousBoards => previousBoards.map(b => b.id === 1 ? {...b, tasks: todo} : b));
 	}, [todo])
+
 
 	const handleTaskCreated = (newTask) => {
 		setTodo((todo) => [...todo, newTask])
