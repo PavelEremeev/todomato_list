@@ -16,6 +16,7 @@
 }
 
 .todo-board__title {
+	text-align: center;
 	color: white;
 	margin: 20px 0;
 	user-select: none;
