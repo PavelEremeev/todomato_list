@@ -31,6 +31,18 @@ function App() {
 		setBoards(previousBoards => previousBoards.map(b => b.id === 1 ? { ...b, tasks: todo } : b));
 	}, [todo])
 
+	useEffect(() => {
+
+		localStorage.setItem('inProgress', JSON.stringify(inProgress))
+		setBoards(previousBoards => previousBoards.map(b => b.id === 2 ? { ...b, tasks: inProgress } : b));
+	}, [inProgress])
+
+	useEffect(() => {
+
+		localStorage.setItem('done', JSON.stringify(done))
+		setBoards(previousBoards => previousBoards.map(b => b.id === 3 ? { ...b, tasks: done } : b));
+	}, [done])
+
 
 	const handleTaskCreated = (newTask) => {
 		setTodo((todo) => [...todo, newTask])
@@ -63,6 +75,7 @@ function App() {
 			</Routes>
 			<Footer />
 		</BrowserRouter>
+
 	);
 }
 

@@ -1,16 +1,20 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import './TodoBoards.css';
 
 
-function TodoBoards({todo, inProgress, done, boards, setBoards, setTodo , setDone, setInprogress }) {
+function TodoBoards({ todo, inProgress, done, boards, setBoards, setTodo, setDone, setInprogress }) {
 
 	const [currentTask, setCurrentTask] = useState(null)
 	const [currentBoard, setCurrentBoard] = useState(null)
-	
+
+
+
+
+
 	const handleDragEnd = (evt) => {
 		evt.target.style.borderBottom = 'none'
-		
+
 	}
 
 	const handleDragOver = (evt) => {
@@ -51,23 +55,23 @@ function TodoBoards({todo, inProgress, done, boards, setBoards, setTodo , setDon
 		evt.stopPropagation()
 		evt.preventDefault()
 		board.tasks.push(currentTask)
-		const currentIndex = currentBoard.tasks.indexOf(currentTask)
-		currentBoard.tasks.splice(currentIndex, 1)
+		setCurrentBoard(previousBoard =>
+		({
+			...previousBoard,
+			tasks: previousBoard.tasks.filter(t => t !== currentTask)
+		}))
 		// не понимаю почему удаляется целиком весь массив туду из LS вместо одного объекта. в консоли один объект.
 		console.log(currentTask)
 		console.log(currentBoard.lsName)
-		localStorage.removeItem(currentBoard.lsName, JSON.stringify(currentTask))
+
 		if (board.id === 1) {
 			setTodo((todo) => [...todo, currentTask])
-			localStorage.setItem('todo', JSON.stringify(todo))
 		}
 		if (board.id === 2) {
 			setInprogress((inProgress) => [...inProgress, currentTask])
-			localStorage.setItem('inProgress', JSON.stringify(inProgress))
 		}
 		if (board.id === 3) {
 			setDone((done) => [...done, currentTask])
-			localStorage.setItem('done', JSON.stringify(done))
 		}
 		setBoards(boards.map(brd => {
 			if (brd.id === board.id) {
@@ -81,44 +85,44 @@ function TodoBoards({todo, inProgress, done, boards, setBoards, setTodo , setDon
 
 	const handleDeleteTask = (id) => {
 		console.log(id)
-		 setTodo(todo.filter((task) => task.id !== id))
-		 setInprogress(inProgress.filter((task) => task.id !== id))
-		 setDone(done.filter((task) => task.id !== id))
+		setTodo(todo.filter((task) => task.id !== id))
+		// setInprogress(inProgress.filter((task) => task.id !== id))
+		// setDone(done.filter((task) => task.id !== id))
 	}
 
-  return (
-    <section className="todo-boards">
-			{boards.map(board => 
-			 <div className='todo-board' key={board.id}
-			 onDragOver={(evt) => handleDragOver(evt)}
-			 onDrop={(evt) => handleBoardDrop(evt, board)}
-			 >
-				 <h3 className='todo-board__title'>{board.title}</h3>
-				 {board.tasks.map((task,i) =>	
-					<div className='todo-board__task-wrapper'
-					key={task.id}
-					draggable={true}
+	return (
+		<section className="todo-boards">
+			{boards.map(board =>
+				<div className='todo-board' key={board.id}
 					onDragOver={(evt) => handleDragOver(evt)}
-					onDragLeave={(evt) => handleDragLeave(evt)}
-					onDragStart={(evt) => handleDragStart(evt, board, task)}
-					onDragEnd={(evt) => handleDragEnd(evt)}
-					onDrop={(evt) => handleDrop(evt, board, task)}
-					>
-						<div className='todo-board__task-number'>
-						{i+1 + '. '}
+					onDrop={(evt) => handleBoardDrop(evt, board)}
+				>
+					<h3 className='todo-board__title'>{board.title}</h3>
+					{board.tasks.map((task, i) =>
+						<div className='todo-board__task-wrapper'
+							key={task.id}
+							draggable={true}
+							onDragOver={(evt) => handleDragOver(evt)}
+							onDragLeave={(evt) => handleDragLeave(evt)}
+							onDragStart={(evt) => handleDragStart(evt, board, task)}
+							onDragEnd={(evt) => handleDragEnd(evt)}
+							onDrop={(evt) => handleDrop(evt, board, task)}
+						>
+							<div className='todo-board__task-number'>
+								{i + 1 + '. '}
+							</div>
+							<div className='todo-board__task'>
+								{task.taskDescription}
+							</div>
+							<button className='todo-board__delete-button' onClick={() => handleDeleteTask(task.id)}>
+								X
+							</button>
 						</div>
-						<div className='todo-board__task'>
-						{task.taskDescription}
-						</div>
-						<button className='todo-board__delete-button' onClick={() => handleDeleteTask(task.id)}>
-							X
-						</button>
-					</div>
 					)}
-			</div>
+				</div>
 			)}
-    </section>
-  );
+		</section>
+	);
 }
 
 export default TodoBoards;
