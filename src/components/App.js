@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './Header';
 import NewTask from './NewTask';
-import TodoBoard from './TodoBoard';
+import TodoList from './TodoList';
 import Footer from './Footer';
 
 import './App.css';
@@ -29,7 +29,7 @@ function App() {
 		return (
 			<>
 				<NewTask onTaskCreated={handleTaskCreated} />
-				<TodoBoard
+				<TodoList
 					todo={todo}
 					setTodo={setTodo}
 				/>
