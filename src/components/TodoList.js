@@ -5,8 +5,9 @@ import './TodoList.css';
 
 function TodoList({ todo, setTodo }) {
 
-	function handleDeleteTask(task) {
-
+	function handleDeleteTask(id) {
+		console.log(id)
+		setTodo(todo.filter((task) => task.id !== id))
 	}
 
 
