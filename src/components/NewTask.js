@@ -17,15 +17,20 @@ function NewTask({ onTaskCreated }) {
 		return "rgb(" + red + ", " + green + ", " + blue + ")";
 	}
 
+	const generatePosition = () => {
+		const xAxis = Math.floor((1 + Math.random()) * 600 / 2);
+		const yAxis = Math.floor((1 + Math.random()) * -100 / 2);
+		console.log(xAxis, yAxis)
+		return { x: xAxis, y: yAxis };
+	}
+
+
 	const handleButtonClick = () => {
 		if (taskDescription.trim() !== '') {
 			onTaskCreated({
 				taskDescription,
 				id: Math.random().toString(20),
-				defaultPos: {
-					x: -100,
-					y: -100
-				},
+				defPos: generatePosition(),
 				color: generateLightColorRgb(),
 			});
 			setTaskDescription('')
