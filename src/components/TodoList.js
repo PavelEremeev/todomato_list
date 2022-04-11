@@ -14,11 +14,11 @@ function TodoList({ todo, setTodo }) {
 	return (
 		<section className="todo-list">
 			{todo.length > 0 ? <div className='todo-list__wrapper'>
-				{todo.length > 0 ? <h1 className='todo-list__title'>Мои задачи:</h1> : ''}
+				{/* {todo.length > 0 ? <h1 className='todo-list__title'>Мои задачи:</h1> : ''} */}
 				{todo.map((task, i) =>
-					<Draggable key={task.id}>
+					<Draggable key={task.id} defaultPosition={task.defPos}>
 						<div className='todo-list__task-wrapper'
-						>
+							style={{ backgroundColor: task.color }}>
 							<div className='todo-list__task-number'>
 								{i + 1 + '. '}
 							</div>

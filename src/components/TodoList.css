@@ -1,15 +1,14 @@
 .todo-list {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
 	font-family: 'Nunito';
+
 }
 
 
 .todo-list__wrapper {
+	position: relative;
 	display: flex;
 	flex-direction: column;
-	width: 60%;
+	/* width: 60%; */
 	min-height: 250px;
 	padding-bottom: 20px;
 
@@ -25,6 +24,7 @@
 }
 
 .todo-list__task-wrapper {
+	position: absolute;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -55,7 +55,6 @@
 
 .todo-list__task-wrapper:hover {
 	background-color: rgba(242, 242, 242, 0.25);
-	;
 	transition: ease-in .2s;
 }
 
