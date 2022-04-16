@@ -25,9 +25,7 @@ function App() {
 
 	}
 
-	const cleanUp = (state) => {
 
-	}
 
 	const Main = () => {
 		return (
@@ -36,7 +34,6 @@ function App() {
 				<TodoList
 					todo={todo}
 					setTodo={setTodo}
-					cleanUp={cleanUp}
 				/>
 			</>
 		)
