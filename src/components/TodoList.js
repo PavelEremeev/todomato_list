@@ -3,20 +3,31 @@ import Draggable from 'react-draggable';
 import './TodoList.css';
 
 
-function TodoList({ todo, setTodo }) {
+function TodoList({ todo, setTodo, cleanUp }) {
 
-	function handleDeleteTask(id) {
+	const handleDeleteTask = (id) => {
 		console.log(id)
 		setTodo(todo.filter((task) => task.id !== id))
 	}
 
 
+	const handleUpdatePosition = (data, i) => {
+		let todoArr = [...todo]
+		todoArr[i].defPos = { x: data.x, y: data.y }
+		setTodo(todoArr)
+	}
+
 	return (
 		<section className="todo-list">
-			{todo.length > 0 ? <div className='todo-list__wrapper'>
-				{/* {todo.length > 0 ? <h1 className='todo-list__title'>Мои задачи:</h1> : ''} */}
+			<div className='todo-list__wrapper'>
 				{todo.map((task, i) =>
-					<Draggable key={task.id} defaultPosition={task.defPos}>
+					<Draggable key={task.id}
+						defaultPosition={task.defPos}
+						onStop={(_, data) => {
+							handleUpdatePosition(data, i);
+							return false
+						}}
+					>
 						<div className='todo-list__task-wrapper'
 							style={{ backgroundColor: task.color }}>
 							<div className='todo-list__task-number'>
@@ -31,7 +42,7 @@ function TodoList({ todo, setTodo }) {
 						</div>
 					</Draggable>
 				)}
-			</div> : ''}
+			</div>
 		</section>
 	);
 }

@@ -20,7 +20,6 @@ function NewTask({ onTaskCreated }) {
 	const generatePosition = () => {
 		const xAxis = Math.floor((1 + Math.random()) * 600 / 2);
 		const yAxis = Math.floor((1 + Math.random()) * -100 / 2);
-		console.log(xAxis, yAxis)
 		return { x: xAxis, y: yAxis };
 	}
 
