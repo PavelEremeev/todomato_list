@@ -1,21 +1,22 @@
-.todo-boards {
+.todo-list {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	font-family: 'Nunito';
 }
 
-.todo-board {
+
+.todo-list__wrapper {
 	display: flex;
 	flex-direction: column;
-	border: 2px solid white;
-	width: 27%;
+	width: 60%;
 	min-height: 250px;
 	padding-bottom: 20px;
 
 }
 
-.todo-board__title {
+.todo-list__title {
+	text-align: center;
 	color: white;
 	margin: 20px 0;
 	user-select: none;
@@ -23,24 +24,24 @@
 	font-size: 23px;
 }
 
-.todo-board__task-wrapper {
+.todo-list__task-wrapper {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	transition: ease-in .2s;
-	cursor: pointer;
+	cursor: grab;
 }
 
-.todo-board__task {
+.todo-list__task {
 	color: white;
-    margin: 5px 5px;
-    padding: 5px 0;
+	margin: 5px 5px;
+	padding: 5px 0;
 	transition: ease-in .2s;
-	
+
 	overflow: hidden;
 }
 
-.todo-board__task-number {
+.todo-list__task-number {
 	color: white;
 	font-weight: 100;
 	padding: 5px 0;
@@ -48,16 +49,17 @@
 }
 
 
-.todo-board__task_active {
+.todo-list__task_active {
 	border-bottom: 2px solid white;
 }
 
-.todo-board__task-wrapper:hover {
-	background-color: rgba(242, 242, 242, 0.25);;
+.todo-list__task-wrapper:hover {
+	background-color: rgba(242, 242, 242, 0.25);
+	;
 	transition: ease-in .2s;
 }
 
-.todo-board__delete-button {
+.todo-list__delete-button {
 	border: none;
 	outline: none;
 	background-color: transparent;
@@ -67,7 +69,7 @@
 	transition: ease-in .2s;
 }
 
-.todo-board__delete-button:hover {
+.todo-list__delete-button:hover {
 	font-weight: 900;
 	color: white;
 	opacity: 1;
