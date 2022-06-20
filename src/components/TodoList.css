@@ -31,7 +31,6 @@
 	transition: ease-in .2s;
 	max-width: 450px;
 	padding: 5px;
-	cursor: move;
 }
 
 .todo-list__task {
