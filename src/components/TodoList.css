@@ -5,10 +5,10 @@
 
 
 .todo-list__wrapper {
-	position: relative;
 	display: flex;
 	flex-direction: column;
-	/* width: 60%; */
+	align-items: center;
+	justify-content: flex-start;
 	min-height: 250px;
 	padding-bottom: 20px;
 
@@ -24,12 +24,12 @@
 }
 
 .todo-list__task-wrapper {
-	position: absolute;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	transition: ease-in .2s;
-	max-width: 450px;
+	width: 36%;
+	min-width: 350px;
 	padding: 5px;
 }
 
