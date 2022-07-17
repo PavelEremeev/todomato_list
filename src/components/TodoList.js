@@ -18,31 +18,39 @@ function TodoList({ todo, setTodo, setUpdatedTask }) {
 
 	return (
 		<section className='todo-list'>
-			<div className='todo-list__wrapper'>
-				{todo.map((task, i) =>
-					<div id={task.id} key={task.id} className='todo-list__task-wrapper'
-						style={{ backgroundColor: task.color }}>
-						<div className='todo-list__task-number'>
-							{i + 1 + '. '}
-						</div>
-						<div className='todo-list__task'>
-							{task.description}
-						</div>
-						<button className='todo-list__delete-button' onClick={() => {
+			{todo.length === 0 ? (
+				<>
+					<h1>No tasks bro</h1>
+				</>) : (
+				<>
+					<div className='todo-list__wrapper'>
+						{todo.map((task, i) =>
+							<div id={task.id} key={task.id} className='todo-list__task-wrapper'
+								style={{ backgroundColor: task.color }}>
+								<div className='todo-list__task-number'>
+									{i + 1 + '. '}
+								</div>
+								<div className='todo-list__task'>
+									{task.description}
+								</div>
+								<button className='todo-list__delete-button' onClick={() => {
 
-							handleEditTask(task)
-						}}>
-							Edit
-						</button>
-						<button className='todo-list__delete-button' onClick={() => {
+									handleEditTask(task)
+								}}>
+									Edit
+								</button>
+								<button className='todo-list__delete-button' onClick={() => {
 
-							handleDeleteTask(task.id)
-						}}>
-							X
-						</button>
+									handleDeleteTask(task.id)
+								}}>
+									X
+								</button>
+							</div>
+						)}
 					</div>
-				)}
-			</div>
+				</>
+			)
+			}
 		</section >
 	);
 }

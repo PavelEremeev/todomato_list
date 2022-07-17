@@ -12,7 +12,7 @@ const todoData = JSON.parse(localStorage.getItem('todo'))
 
 function App() {
 	const [todo, setTodo] = useState(todoData || [])
-	const [updatedTask, setUpdatedTask] = useState([])
+	const [updatedTask, setUpdatedTask] = useState()
 
 
 	useEffect(() => {
@@ -26,13 +26,19 @@ function App() {
 
 	}
 
+	const handleTaskUpdated = (todo) => {
+		setTodo(todo)
+
+	}
 
 	const Main = () => {
 		return (
 			<>
 				<NewTask
 					onTaskCreated={handleTaskCreated}
-					updatedTask={updatedTask} />
+					onTaskUpdated={handleTaskUpdated}
+					updatedTask={updatedTask}
+					todo={todo} />
 				<TodoList
 					todo={todo}
 					setTodo={setTodo}
