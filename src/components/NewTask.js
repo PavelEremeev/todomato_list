@@ -2,12 +2,27 @@ import React, { useState } from 'react';
 import './NewTask.css';
 
 
-function NewTask({ onTaskCreated }) {
+function NewTask({ onTaskCreated, updatedTask }) {
 
 	const [taskDescription, setTaskDescription] = useState('');
+	const [updatedTaskDescription, setUpdatedTaskDescription] = useState(updatedTask || '')
 
-	const handleInputChange = (evt) => {
+	const handleInputChangeTask = (evt) => {
+
 		setTaskDescription(evt.target.value);
+	};
+
+	const handleInputChangeUpdatedTask = (evt) => {
+		console.log(updatedTaskDescription)
+		// setUpdatedTaskDescription(evt.target.value)
+		let newDescriptionTask = {
+			description: evt.target.value,
+			id: updatedTask.id,
+			checked: updatedTask.checked,
+			color: updatedTask.color,
+		}
+		setUpdatedTaskDescription(newDescriptionTask)
+
 	};
 
 	const generateLightColorRgb = () => {
@@ -17,36 +32,48 @@ function NewTask({ onTaskCreated }) {
 		return "rgb(" + red + ", " + green + ", " + blue + ")";
 	}
 
-	const generatePosition = () => {
-		const xAxis = Math.floor((1 + Math.random()) * 600 / 2);
-		const yAxis = Math.floor((1 + Math.random()) * -100 / 2);
-		return { x: xAxis, y: yAxis };
-	}
+
 
 
 	const handleButtonClick = () => {
 		if (taskDescription.trim() !== '') {
 			onTaskCreated({
-				taskDescription,
+				description: taskDescription,
 				id: Math.random().toString(20),
-				defPos: generatePosition(),
+				checked: false,
 				color: generateLightColorRgb(),
 			});
 			setTaskDescription('')
 		}
 	};
 
+	const handleCancelUpdatedTask = () => {
+		setUpdatedTaskDescription('')
+	}
+
+	const handleUpdateTask = () => {
+
+	}
 
 	return (
 		<section className="new-task">
 			<input
-				onChange={handleInputChange}
+				onChange={handleInputChangeTask}
 				className='new-task__input'
 				type='text'
 				placeholder='Введите задачу'
 				value={taskDescription}
 			/>
 			<button onClick={handleButtonClick} className='new-task__button'>Создать</button>
+			<input
+				onChange={(evt) => handleInputChangeUpdatedTask(evt)}
+				className='new-task__input'
+				type='text'
+				placeholder='Измените задачу'
+				value={updatedTaskDescription && updatedTaskDescription.description}
+			/>
+			<button onClick={handleUpdateTask} className='new-task__button'>Обновить</button>
+			<button onClick={handleCancelUpdatedTask} className='new-task__button'>Отменить</button>
 		</section>
 	);
 }
