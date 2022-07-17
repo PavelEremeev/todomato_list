@@ -2,13 +2,19 @@ import React from 'react';
 import './TodoList.css';
 
 
-function TodoList({ todo, setTodo }) {
+function TodoList({ todo, setTodo, setUpdatedTask }) {
 
 
 	const handleDeleteTask = (id) => {
 		console.log(id)
 		setTodo(todo.filter((task) => task.id !== id))
 	}
+
+	const handleEditTask = (task) => {
+		console.log(task)
+		setUpdatedTask(task)
+	}
+
 
 	return (
 		<section className='todo-list'>
@@ -20,8 +26,14 @@ function TodoList({ todo, setTodo }) {
 							{i + 1 + '. '}
 						</div>
 						<div className='todo-list__task'>
-							{task.taskDescription}
+							{task.description}
 						</div>
+						<button className='todo-list__delete-button' onClick={() => {
+
+							handleEditTask(task)
+						}}>
+							Edit
+						</button>
 						<button className='todo-list__delete-button' onClick={() => {
 
 							handleDeleteTask(task.id)
