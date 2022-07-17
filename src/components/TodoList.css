@@ -1,15 +1,14 @@
 .todo-list {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
 	font-family: 'Nunito';
+
 }
 
 
 .todo-list__wrapper {
 	display: flex;
 	flex-direction: column;
-	width: 60%;
+	align-items: center;
+	justify-content: flex-start;
 	min-height: 250px;
 	padding-bottom: 20px;
 
@@ -28,8 +27,16 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	transition: ease-in .2s;
-	cursor: grab;
+	transition: ease-in .4s;
+	width: 36%;
+	min-width: 350px;
+	padding: 5px;
+}
+
+.todo-list__task-wrapper:hover {
+	padding-left: 5%;
+	padding-right: 5%;
+	transition: ease-in .4s;
 }
 
 .todo-list__task {
@@ -55,7 +62,6 @@
 
 .todo-list__task-wrapper:hover {
 	background-color: rgba(242, 242, 242, 0.25);
-	;
 	transition: ease-in .2s;
 }
 
@@ -67,10 +73,12 @@
 	cursor: pointer;
 	opacity: 0.5;
 	transition: ease-in .2s;
+	font-weight: 900;
+	font-size: 18px;
 }
 
 .todo-list__delete-button:hover {
-	font-weight: 900;
+
 	color: white;
 	opacity: 1;
 	transition: ease-in .2s;

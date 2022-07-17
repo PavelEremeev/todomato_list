@@ -2,12 +2,25 @@ import React, { useState } from 'react';
 import './NewTask.css';
 
 
-function NewTask({ onTaskCreated }) {
+function NewTask({ onTaskCreated, onTaskUpdated, updatedTask, todo }) {
 
 	const [taskDescription, setTaskDescription] = useState('');
+	const [updatedTaskDescription, setUpdatedTaskDescription] = useState(updatedTask || '')
 
-	const handleInputChange = (evt) => {
+	const handleInputChangeTask = (evt) => {
 		setTaskDescription(evt.target.value);
+	};
+
+	const handleInputChangeUpdatedTask = (evt) => {
+		console.log(updatedTaskDescription)
+		let newDescriptionTask = {
+			description: evt.target.value,
+			id: updatedTaskDescription.id,
+			checked: updatedTaskDescription.checked,
+			color: updatedTaskDescription.color,
+		}
+		setUpdatedTaskDescription(newDescriptionTask)
+
 	};
 
 	const generateLightColorRgb = () => {
@@ -17,32 +30,58 @@ function NewTask({ onTaskCreated }) {
 		return "rgb(" + red + ", " + green + ", " + blue + ")";
 	}
 
+
+
+
 	const handleButtonClick = () => {
 		if (taskDescription.trim() !== '') {
 			onTaskCreated({
-				taskDescription,
+				description: taskDescription,
 				id: Math.random().toString(20),
-				defaultPos: {
-					x: -100,
-					y: -100
-				},
+				checked: false,
 				color: generateLightColorRgb(),
 			});
 			setTaskDescription('')
 		}
 	};
 
+	const handleCancelUpdatedTask = () => {
+		setUpdatedTaskDescription('')
+	}
+
+	const handleUpdateTask = () => {
+		let recordedTasks = [...todo].filter(task => task.id !== updatedTaskDescription.id)
+		let updatedTasks = [...recordedTasks, updatedTaskDescription]
+		onTaskUpdated(updatedTasks);
+		setUpdatedTaskDescription('')
+	}
 
 	return (
 		<section className="new-task">
-			<input
-				onChange={handleInputChange}
-				className='new-task__input'
-				type='text'
-				placeholder='Введите задачу'
-				value={taskDescription}
-			/>
-			<button onClick={handleButtonClick} className='new-task__button'>Создать</button>
+			{updatedTaskDescription && updatedTaskDescription ?
+				(<>
+					<input
+						onChange={(evt) => handleInputChangeUpdatedTask(evt)}
+						className='new-task__input'
+						type='text'
+						placeholder='Измените задачу'
+						value={updatedTaskDescription && updatedTaskDescription.description}
+					/>
+					<button onClick={handleUpdateTask} className='new-task__button'>Обновить</button>
+					<button onClick={handleCancelUpdatedTask} className='new-task__button'>Отменить</button>
+				</>
+				) : (
+					<>
+						<input
+							onChange={handleInputChangeTask}
+							className='new-task__input'
+							type='text'
+							placeholder='Введите задачу'
+							value={taskDescription}
+						/>
+						<button onClick={handleButtonClick} className='new-task__button'>Создать</button>
+					</>
+				)}
 		</section>
 	);
 }

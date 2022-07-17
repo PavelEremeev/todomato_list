@@ -3,7 +3,7 @@
 	justify-content: center;
 	align-items: center;
 	min-height: 40vh;
-	
+
 }
 
 .new-task__input {
@@ -17,12 +17,13 @@
 	outline: none;
 	font-family: 'Nunito';
 	font-size: 20px;
+	min-width: 230px;
 }
 
 .new-task__input::placeholder {
-color: white;
-font-family: 'Nunito Light';
-font-weight: 100;
+	color: white;
+	font-family: 'Nunito Light';
+	font-weight: 100;
 
 }
 
@@ -30,13 +31,13 @@ font-weight: 100;
 	margin: 0 10px;
 	padding: 0;
 	cursor: pointer;
-    font-family: 'Nunito';
-    outline: none;
-    color: white;
-    background: none;
-    border: 2px solid white;
-    height: 40px;
-    width: 10%;
+	font-family: 'Nunito';
+	outline: none;
+	color: white;
+	background: none;
+	border: 2px solid white;
+	height: 40px;
+	width: 10%;
 	min-width: 84px;
 	transition: ease .2s;
 	font-size: 20px;
