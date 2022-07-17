@@ -27,10 +27,16 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	transition: ease-in .2s;
+	transition: ease-in .4s;
 	width: 36%;
 	min-width: 350px;
 	padding: 5px;
+}
+
+.todo-list__task-wrapper:hover {
+	padding-left: 5%;
+	padding-right: 5%;
+	transition: ease-in .4s;
 }
 
 .todo-list__task {
