@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './Header';
-import NewTask from './NewTask';
-import TodoList from './TodoList';
+import Main from './Main';
 import Footer from './Footer';
 
 import './App.css';
@@ -12,8 +11,6 @@ const todoData = JSON.parse(localStorage.getItem('todo'))
 
 function App() {
 	const [todo, setTodo] = useState(todoData || [])
-	const [updatedTask, setUpdatedTask] = useState()
-
 
 	useEffect(() => {
 		localStorage.setItem('todo', JSON.stringify(todo))
@@ -21,39 +18,13 @@ function App() {
 	}, [todo])
 
 
-	const handleTaskCreated = (newTask) => {
-		setTodo((todo) => [...todo, newTask])
-
-	}
-
-	const handleTaskUpdated = (todo) => {
-		setTodo(todo)
-
-	}
-
-	const Main = () => {
-		return (
-			<>
-				<NewTask
-					onTaskCreated={handleTaskCreated}
-					onTaskUpdated={handleTaskUpdated}
-					updatedTask={updatedTask}
-					todo={todo} />
-				<TodoList
-					todo={todo}
-					setTodo={setTodo}
-					setUpdatedTask={setUpdatedTask}
-				/>
-			</>
-		)
-	}
 
 
 	return (
 		<BrowserRouter>
 			<Header />
 			<Routes>
-				<Route path='/' element={<Main />} />
+				<Route path='/' element={<Main todo={todo} setTodo={setTodo} />} />
 			</Routes>
 			<Footer />
 		</BrowserRouter>
