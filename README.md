@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# ToDomato List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Проект представляет собой классический ToDo лист, с функциональной возможностью использовать pomodoro-timer (в разработке).
 
-## Available Scripts
+Используются следующие технологии и паттерны:
+1) React (hooks)
+2) React Router
+3) CSS HTML
+4) Адаптивная и отзывчивая верстка
+5) БЭМ
 
-In the project directory, you can run:
 
-### `npm start`
+### Главная страница проекта
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Представляет собой минималистичный дизайн, в основе которого лежит крутой цвет indian-red (по ХЕКсу: #cd5c5c). Слева сверху лого, справа ссылка на еще разрабатываемый pomodoro timer. В центре страницы находится форма в которую необходимо писать свои ToDo. Есть функции редактирования, удаления и пометки выполненным. 
+![background](background.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Установка и запуск проекта
+1) Копируем ссылку на проект
+2) Открываем терминал в IDE в желаемой папке
+3) Пишем команду git clone "ссылка на проект"
+4) После клонирования проекта переходим в папку с проектом
+5) Далее прописываем в терминале `npm i` 
+6) `npm start`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# ToDomato List
 
-### `npm run build`
+Проект представляет собой классический ToDo лист, с функциональной возможностью использовать pomodoro-timer (в разработке).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Используются следующие технологии и паттерны:
+1) React (hooks)
+2) React Router
+3) CSS HTML
+4) Адаптивная и отзывчивая верстка
+5) БЭМ
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Главная страница проекта
 
-### `npm run eject`
+Представляет собой минималистичный дизайн, в основе которого лежит крутой цвет indian-red (по ХЕКсу: #cd5c5c). Слева сверху лого, справа ссылка на еще разрабатываемый pomodoro timer. В центре страницы находится форма в которую необходимо писать свои ToDo. Цвет фона каждой таски подбирается рандомно (есть идея в будущем добавить палитру). Есть функции редактирования, удаления и пометки выполненным. 
+![background](background.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Установка и запуск проекта
+1) Копируем ссылку на проект
+2) Открываем терминал в IDE в желаемой папке
+3) Пишем команду git clone "ссылка на проект"
+4) После клонирования проекта переходим в папку с проектом
+5) Далее прописываем в терминале `npm i` 
+6) `npm start`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
