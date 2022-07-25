@@ -1,8 +1,8 @@
 .header {
-display: flex;
-flex-direction: row;
-align-items: baseline;
-justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	justify-content: space-between;
 }
 
 .header__logo {
@@ -31,18 +31,20 @@ justify-content: space-between;
 	margin-right: 3%;
 }
 
-.header__text {
+.header__button {
 	font-family: 'Nunito';
 	text-decoration: none;
 	color: white;
+	background-color: transparent;
 	transition: ease .2s;
 	border: 2px solid white;
 	padding: 5px;
 	font-size: 18px;
 }
 
-.header__text:hover {
+.header__button:hover {
 	color: indianred;
 	transition: ease .2s;
 	background-color: white;
+	cursor: pointer;
 }
