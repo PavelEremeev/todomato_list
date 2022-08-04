@@ -8,10 +8,12 @@ const Main = ({ todo, setTodo }) => {
 
 
     const generateLightColorRgb = () => {
-        const red = Math.floor((1 + Math.random()) * 256 / 2);
-        const green = Math.floor((1 + Math.random()) * 256 / 2);
-        const blue = Math.floor((1 + Math.random()) * 256 / 2);
+        const red = Math.floor((1 + Math.random()) * 200);
+        const green = Math.floor((1 + Math.random()) * 212 / 2);
+        const blue = Math.floor((1 + Math.random()) * 150);
         return "rgb(" + red + ", " + green + ", " + blue + ")";
+
+
     }
 
     const handleTaskCreated = () => {
