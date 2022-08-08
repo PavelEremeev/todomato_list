@@ -28,7 +28,6 @@ const Main = ({ todo, setTodo }) => {
             setNewTask('')
         }
 
-
     }
 
     const handleTaskUpdated = () => {
@@ -73,6 +72,7 @@ const Main = ({ todo, setTodo }) => {
     const handleTaskDeleted = (id) => {
         setTodo(todo.filter((task) => task.id !== id))
     }
+
 
     return (
         <>

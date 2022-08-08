@@ -7,7 +7,9 @@ const NewTask = (
 		handleTaskChanged,
 		handleTaskUpdated,
 		handleTaskCancelUpdated,
-		handleTaskCreated }) => {
+		handleTaskCreated
+	}) => {
+
 
 
 	return (
@@ -20,6 +22,7 @@ const NewTask = (
 						type='text'
 						placeholder='Измените задачу'
 						value={updatedTask && updatedTask.description}
+						onKeyPress={(evt) => evt.key === 'Enter' && handleTaskUpdated()}
 					/>
 					<button onClick={handleTaskUpdated} className='new-task__button'>Обновить</button>
 					<button onClick={handleTaskCancelUpdated} className='new-task__button'>Отменить</button>
@@ -31,6 +34,7 @@ const NewTask = (
 						type='text'
 						placeholder='Введите задачу'
 						value={newTask}
+						onKeyPress={(evt) => evt.key === 'Enter' && handleTaskCreated()}
 					/>
 					<button onClick={handleTaskCreated} className='new-task__button'>Создать</button>
 				</>)}
