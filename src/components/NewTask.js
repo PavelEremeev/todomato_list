@@ -1,3 +1,4 @@
+import ColorPicker from './ColorPicker';
 import './NewTask.css';
 
 const NewTask = (
@@ -7,7 +8,9 @@ const NewTask = (
 		handleTaskChanged,
 		handleTaskUpdated,
 		handleTaskCancelUpdated,
-		handleTaskCreated
+		handleTaskCreated,
+		handleChangeColor,
+		color
 	}) => {
 
 
@@ -24,6 +27,7 @@ const NewTask = (
 						value={updatedTask && updatedTask.description}
 						onKeyPress={(evt) => evt.key === 'Enter' && handleTaskUpdated()}
 					/>
+					<ColorPicker handleChangeColor={handleChangeColor} color={color} />
 					<button onClick={handleTaskUpdated} className='new-task__button'>Обновить</button>
 					<button onClick={handleTaskCancelUpdated} className='new-task__button'>Отменить</button>
 				</>) : (
@@ -37,6 +41,7 @@ const NewTask = (
 						onKeyPress={(evt) => evt.key === 'Enter' && handleTaskCreated()}
 					/>
 					<button onClick={handleTaskCreated} className='new-task__button'>Создать</button>
+
 				</>)}
 		</section>
 	);

@@ -5,7 +5,12 @@ import TodoList from './TodoList';
 const Main = ({ todo, setTodo }) => {
     const [newTask, setNewTask] = useState('')
     const [updatedTask, setUpdatedTask] = useState('')
+    const [color, setColor] = useState('#bbb')
 
+
+    const handleChangeColor = (evt) => {
+        setColor(evt.target.value)
+    }
 
     const generateLightColorRgb = () => {
         const red = Math.floor((1 + Math.random()) * 200);
@@ -84,6 +89,8 @@ const Main = ({ todo, setTodo }) => {
                 handleTaskCancelUpdated={handleTaskCancelUpdated}
                 handleTaskUpdated={handleTaskUpdated}
                 handleTaskCreated={handleTaskCreated}
+                handleChangeColor={handleChangeColor}
+                color={color}
             />
             <TodoList
                 todo={todo}
