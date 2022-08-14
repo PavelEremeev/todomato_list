@@ -10,6 +10,14 @@ const Main = ({ todo, setTodo }) => {
 
     const handleChangeColor = (evt) => {
         setColor(evt.target.value)
+
+        let changedTodo = {
+            id: updatedTask.id,
+            description: updatedTask.description,
+            color: evt.target.value,
+            done: updatedTask.done ? true : false,
+        }
+        setUpdatedTask(changedTodo)
     }
 
     const generateLightColorRgb = () => {
@@ -27,7 +35,7 @@ const Main = ({ todo, setTodo }) => {
                 description: newTask,
                 id: Math.random().toString(20),
                 done: false,
-                color: generateLightColorRgb()
+                color: color
             }
             setTodo((todo) => [...todo, newTodo])
             setNewTask('')
