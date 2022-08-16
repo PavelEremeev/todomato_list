@@ -19,13 +19,15 @@ const NewTask = (
 		<section className="new-task">
 			{updatedTask && updatedTask ? (
 				<>
-					<input
+					<textarea
 						onChange={(evt) => handleTaskChanged(evt)}
 						className='new-task__input'
 						type='text'
 						placeholder='Измените задачу'
 						value={updatedTask && updatedTask.description}
 						onKeyPress={(evt) => evt.key === 'Enter' && handleTaskUpdated()}
+						maxLength='69'
+						cols='2'
 					/>
 					<ColorPicker handleChangeColor={handleChangeColor} color={color} />
 					<button onClick={handleTaskUpdated} className='new-task__button'>Обновить</button>
