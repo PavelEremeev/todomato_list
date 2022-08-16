@@ -32,13 +32,15 @@ const NewTask = (
 					<button onClick={handleTaskCancelUpdated} className='new-task__button'>Отменить</button>
 				</>) : (
 				<>
-					<input
+					<textarea
 						onChange={(evt) => setNewTask(evt.target.value)}
 						className='new-task__input'
 						type='text'
 						placeholder='Введите задачу'
 						value={newTask}
 						onKeyPress={(evt) => evt.key === 'Enter' && handleTaskCreated()}
+						maxLength='69'
+						cols='2'
 					/>
 					<button onClick={handleTaskCreated} className='new-task__button'>Создать</button>
 
