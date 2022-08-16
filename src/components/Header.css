@@ -38,8 +38,9 @@
 	background-color: transparent;
 	transition: ease .2s;
 	border: 2px solid white;
-	padding: 5px;
+	padding: 8px;
 	font-size: 18px;
+	border-radius: 8px;
 }
 
 .header__button:hover {
