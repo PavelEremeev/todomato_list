@@ -7,7 +7,7 @@ const Main = ({ todo, setTodo }) => {
     const [updatedTask, setUpdatedTask] = useState('')
     const [color, setColor] = useState('#bbb')
 
-
+    // Изменение цвета фона таски
     const handleChangeColor = (evt) => {
         setColor(evt.target.value)
 
@@ -20,15 +20,7 @@ const Main = ({ todo, setTodo }) => {
         setUpdatedTask(changedTodo)
     }
 
-    const generateLightColorRgb = () => {
-        const red = Math.floor((1 + Math.random()) * 200);
-        const green = Math.floor((1 + Math.random()) * 212 / 2);
-        const blue = Math.floor((1 + Math.random()) * 150);
-        return "rgb(" + red + ", " + green + ", " + blue + ")";
-
-
-    }
-
+    // Создание таски
     const handleTaskCreated = () => {
         if (newTask.trim() !== '') {
             let newTodo = {
@@ -43,6 +35,7 @@ const Main = ({ todo, setTodo }) => {
 
     }
 
+    // Обновление измененной таски
     const handleTaskUpdated = () => {
         if (updatedTask.id) {
             let filteredTodo = [...todo].filter(task => task.id !== updatedTask.id)
@@ -53,11 +46,12 @@ const Main = ({ todo, setTodo }) => {
 
     }
 
+    // Отмена изменения обновления
     const handleTaskCancelUpdated = (task) => {
         setUpdatedTask('')
 
     }
-
+    // Изменение таски
     const handleTaskChanged = (evt) => {
         let changedTodo = {
             id: updatedTask.id,
@@ -67,7 +61,7 @@ const Main = ({ todo, setTodo }) => {
         }
         setUpdatedTask(changedTodo)
     }
-
+    // Подсвечивание завершенной таски
     const handleTaskComplete = (id) => {
         let completeTask = todo.map(task => {
             if (task.id === id) {
@@ -78,10 +72,12 @@ const Main = ({ todo, setTodo }) => {
         setTodo(completeTask)
     }
 
+    // Редактирование таски 
     const handleTaskEdited = (task) => {
         setUpdatedTask(task)
     }
 
+    // Удаление таски    
     const handleTaskDeleted = (id) => {
         setTodo(todo.filter((task) => task.id !== id))
     }
