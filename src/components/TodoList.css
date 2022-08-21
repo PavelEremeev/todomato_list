@@ -14,13 +14,14 @@
 
 }
 
+
 .todo-list__title {
 	text-align: center;
 	color: white;
 	margin: 20px 0;
 	user-select: none;
 	-ms-user-select: none;
-	font-size: 23px;
+	font-size: 30px;
 }
 
 .todo-list__task-wrapper {

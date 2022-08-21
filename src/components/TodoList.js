@@ -7,7 +7,7 @@ const TodoList = ({ todo, handleTaskComplete, handleTaskEdited, handleTaskDelete
 
 	return (
 		<section className='todo-list'>
-			{todo && todo.length ? '' : (<><h1>No tasks bro</h1></>)}
+			{todo && todo.length ? '' : (<><h1 className='todo-list__title'>Список задач пуст, бро 😏</h1></>)}
 			<div className='todo-list__wrapper'>
 				{todo && todo
 					.map((task, i) =>
