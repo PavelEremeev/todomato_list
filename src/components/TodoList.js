@@ -13,7 +13,7 @@ const TodoList = ({ todo, handleTaskComplete, handleTaskEdited, handleTaskDelete
 					.map((task, i) =>
 						<div id={task.id} key={task.id} className='todo-list__task-wrapper'
 							style={{ backgroundColor: task.color }}>
-							<div className='todo-list__task-wrapper-block'>
+							<div className='todo-list__task-text-wrapper'>
 								<div className='todo-list__task-number'>
 									{i + 1 + '. '}
 								</div>
@@ -21,7 +21,7 @@ const TodoList = ({ todo, handleTaskComplete, handleTaskEdited, handleTaskDelete
 									{task.description}
 								</div>
 							</div>
-							<div className='todo-list__task-wrapper-block'>
+							<div className='todo-list__task-button-wrapper'>
 								<button className={task.done ?
 									'todo-list__button todo-list__button_done todo-list__button_done-active'
 									: 'todo-list__button todo-list__button_done'} onClick={() => {

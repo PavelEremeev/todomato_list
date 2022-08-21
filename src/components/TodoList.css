@@ -29,17 +29,23 @@
 	flex-direction: row;
 	justify-content: space-between;
 	transition: ease-in .4s;
-	width: 36%;
+	width: 44%;
 	min-width: 350px;
 	padding: 5px;
 	border-radius: 8px;
 	margin-bottom: 10px;
 }
 
-.todo-list__task-wrapper-block {
+.todo-list__task-text-wrapper {
 	display: flex;
 	flex-direction: row;
+	width: 65%;
 
+}
+
+.todo-list__task-button-wrapper {
+	display: flex;
+	flex-direction: row;
 }
 
 .todo-list__task-wrapper:hover {
