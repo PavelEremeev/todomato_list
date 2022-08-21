@@ -5,7 +5,7 @@ import TodoList from './TodoList';
 const Main = ({ todo, setTodo }) => {
     const [newTask, setNewTask] = useState('')
     const [updatedTask, setUpdatedTask] = useState('')
-    const [color, setColor] = useState('#bbb')
+    const [color, setColor] = useState('#fec3c3')
 
     // Изменение цвета фона таски
     const handleChangeColor = (evt) => {
