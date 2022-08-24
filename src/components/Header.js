@@ -7,13 +7,14 @@ function Header() {
 	return (
 		<header className='header'>
 			<Link to='/' className='header__logo'>
-				<h1 className='header__title'>TOD</h1>
+				<h2 className='header__title'>TOD</h2>
 				<img className='header__image' src={logo} alt='tomatopicture' />
-				<h1 className='header__title'>MAT</h1>
+				<h2 className='header__title'>MAT</h2>
 				<img className='header__image' src={logo} alt='tomatopicture' />
 			</Link>
 			<div className='header__container'>
-				<Link to='/timer' className='header__text'>Попробуйте TODOMATO-timer</Link>
+				<Link to='/timer'>
+					<button className='header__button'>TODOMATO-timer</button></Link>
 			</div>
 		</header>
 	);

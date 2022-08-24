@@ -14,13 +14,14 @@
 
 }
 
+
 .todo-list__title {
 	text-align: center;
 	color: white;
 	margin: 20px 0;
 	user-select: none;
 	-ms-user-select: none;
-	font-size: 23px;
+	font-size: 30px;
 }
 
 .todo-list__task-wrapper {
@@ -28,9 +29,23 @@
 	flex-direction: row;
 	justify-content: space-between;
 	transition: ease-in .4s;
-	width: 36%;
+	width: 44%;
 	min-width: 350px;
 	padding: 5px;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+
+.todo-list__task-text-wrapper {
+	display: flex;
+	flex-direction: row;
+	width: 65%;
+
+}
+
+.todo-list__task-button-wrapper {
+	display: flex;
+	flex-direction: row;
 }
 
 .todo-list__task-wrapper:hover {
@@ -75,6 +90,7 @@
 	transition: ease-in .2s;
 	font-weight: 900;
 	font-size: 18px;
+	margin: 0 5px 0 5px;
 }
 
 .todo-list__button:hover {
@@ -82,4 +98,37 @@
 	color: white;
 	opacity: 1;
 	transition: ease-in .2s;
+}
+
+.todo-list__button_done {
+	background-image: url(../images/check-mark_white.png);
+	width: 30px;
+	height: 30px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	align-self: center;
+}
+
+.todo-list__button_done-active {
+	opacity: 1;
+}
+
+.todo-list__button_edit {
+	background-image: url(../images/more_white.png);
+	width: 30px;
+	height: 22px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	align-self: center;
+	/* margin: 0 5px 0 5px; */
+}
+
+.todo-list__button_delete {
+	background-image: url(../images/x-mark_white.png);
+	width: 30px;
+	height: 30px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	align-self: center;
+
 }
