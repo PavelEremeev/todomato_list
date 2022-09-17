@@ -16,6 +16,22 @@
 
 }
 
+
+.header__image:hover {
+	animation: rotate 0.7s linear;
+	transition: linear .2s;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 .header__title {
 	font-size: 28px;
 	margin: 0;
@@ -26,6 +42,7 @@
 .header__image {
 	height: 22px;
 }
+
 
 .header__container {
 	margin-right: 3%;
