@@ -1,0 +1,89 @@
+.timer-description {
+    font-family: Nunito;
+}
+
+.timer-description__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer__title {
+    color: white;
+    margin: 20px 0;
+    font-size: 30px;
+    margin-right: 15px;
+}
+
+.timer__title-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    user-select: none;
+    -ms-user-select: none;
+}
+
+.timer__image {
+    height: 45px;
+    transition: linear .2s;
+}
+
+.timer__image:hover {
+    cursor: pointer;
+    animation: rotate 0.7s linear;
+    transition: linear .2s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.timer__description {
+    color: white;
+    font-size: 18px;
+    width: 50%;
+}
+
+
+
+.timer-card {
+    background-color: white;
+    border-radius: 8px;
+    width: 250px;
+    transition: ease-out .2s;
+}
+
+.timer-card:hover {
+    transform: scale(1.03);
+    transition: ease-in .2s;
+}
+
+.timer-card__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.timer-card__image {
+    height: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-size: contain;
+}
+
+.timer-card__description {
+    padding: 10px;
+    color: indianred;
+}
+
+.timer__card-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 15px;
+}
