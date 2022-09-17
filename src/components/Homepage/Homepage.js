@@ -1,8 +1,9 @@
 import React, { useState } from "react"
+import Header from "../Header";
 import NewTask from './NewTask';
 import TodoList from './TodoList';
 
-const Main = ({ todo, setTodo }) => {
+const Homepage = ({ todo, setTodo }) => {
     const [newTask, setNewTask] = useState('')
     const [updatedTask, setUpdatedTask] = useState('')
     const [color, setColor] = useState('#fec3c3')
@@ -85,26 +86,29 @@ const Main = ({ todo, setTodo }) => {
 
     return (
         <>
-            <NewTask
-                newTask={newTask}
-                setNewTask={setNewTask}
-                updatedTask={updatedTask}
-                handleTaskChanged={handleTaskChanged}
-                handleTaskCancelUpdated={handleTaskCancelUpdated}
-                handleTaskUpdated={handleTaskUpdated}
-                handleTaskCreated={handleTaskCreated}
-                handleChangeColor={handleChangeColor}
-                color={color}
-            />
-            <TodoList
-                todo={todo}
-                handleTaskComplete={handleTaskComplete}
-                handleTaskDeleted={handleTaskDeleted}
-                handleTaskEdited={handleTaskEdited}
+            <Header />
+            <main>
+                <NewTask
+                    newTask={newTask}
+                    setNewTask={setNewTask}
+                    updatedTask={updatedTask}
+                    handleTaskChanged={handleTaskChanged}
+                    handleTaskCancelUpdated={handleTaskCancelUpdated}
+                    handleTaskUpdated={handleTaskUpdated}
+                    handleTaskCreated={handleTaskCreated}
+                    handleChangeColor={handleChangeColor}
+                    color={color}
+                />
+                <TodoList
+                    todo={todo}
+                    handleTaskComplete={handleTaskComplete}
+                    handleTaskDeleted={handleTaskDeleted}
+                    handleTaskEdited={handleTaskEdited}
 
-            />
+                />
+            </main>
         </>
     )
 }
 
-export default Main;
+export default Homepage;
