@@ -18,7 +18,7 @@
 
 
 .header__image:hover {
-	animation: rotate 0.7s linear;
+	animation: rotate 0.4s linear;
 	transition: linear .2s;
 }
 

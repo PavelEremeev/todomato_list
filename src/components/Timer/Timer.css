@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 5vh;
 }
 
 .timer__title {
@@ -30,7 +31,7 @@
 
 .timer__image:hover {
     cursor: pointer;
-    animation: rotate 0.7s linear;
+    animation: rotate 0.3s linear;
     transition: linear .2s;
 }
 
@@ -50,17 +51,20 @@
     width: 50%;
 }
 
-
-
 .timer-card {
     background-color: white;
     border-radius: 8px;
-    width: 250px;
+    max-width: 250px;
     transition: ease-out .2s;
 }
 
 .timer-card:hover {
     transform: scale(1.03);
+    transition: ease-in .2s;
+}
+
+.timer-card__image:hover {
+    transform: scale(1.1);
     transition: ease-in .2s;
 }
 
@@ -74,6 +78,7 @@
     padding: 10px;
     box-sizing: border-box;
     background-size: contain;
+    transition: ease-in-out .2s;
 }
 
 .timer-card__description {
@@ -81,9 +86,29 @@
     color: indianred;
 }
 
-.timer__card-container {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr;
-    gap: 15px;
+
+@media screen and (max-width: 1280px) {
+    .timer__card-container {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr;
+        gap: 15px;
+        margin: 20px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+
+    .timer__card-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .timer-card {
+        margin-right: 20px;
+    }
+
+    .timer-card:last-child {
+        margin-right: 0;
+    }
 }

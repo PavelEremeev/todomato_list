@@ -1,0 +1,30 @@
+.presets {
+    font-family: 'Nunito';
+}
+
+.presets__wrapper {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.preset__name {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    transition: ease .2s;
+    border: 2px solid white;
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+.preset__name:hover {
+    color: indianred;
+    transition: ease .2s;
+    background-color: white;
+    cursor: pointer;
+}

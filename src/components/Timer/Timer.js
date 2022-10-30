@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../Header';
+import Presets from './Presets';
 
 import logo from '../../images/todomato_logo.png'
 import dataDescription from '../../mock/dataDescription'
@@ -7,6 +8,8 @@ import dataDescription from '../../mock/dataDescription'
 import './Timer.css'
 
 export default function Timer() {
+    const presets = ['Работа', 'Короткий перерыв', 'Длинный перерыв']
+
     return (
         <>
             <Header />
@@ -26,7 +29,7 @@ export default function Timer() {
                     </p>
                     <div className='timer__card-container'>
                         {dataDescription.map((card, i) =>
-                            <div className='timer-card'>
+                            <div className='timer-card' key={i}>
                                 <div className='timer-card__wrapper'>
                                     <img className='timer-card__image' src={card.image} alt='pic' />
                                     <p className='timer-card__description'>{i + 1 + '. '}{card.description}</p>
@@ -35,8 +38,8 @@ export default function Timer() {
                         )}
                     </div>
                 </div>
-
             </section>
+            <Presets presetsName={presets} />
 
         </>
     )
