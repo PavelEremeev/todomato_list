@@ -6,6 +6,7 @@ import logo from '../../images/todomato_logo.png'
 import dataDescription from '../../mock/dataDescription'
 
 import './Timer.css'
+import Circle from './Circle';
 
 export default function Timer() {
     const presets = ['Работа', 'Короткий перерыв', 'Длинный перерыв']
@@ -40,6 +41,7 @@ export default function Timer() {
                 </div>
             </section>
             <Presets presetsName={presets} />
+            <Circle />
 
         </>
     )
