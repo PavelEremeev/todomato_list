@@ -28,3 +28,15 @@
     background-color: white;
     cursor: pointer;
 }
+
+.preset__name_active {
+    color: indianred;
+    background-color: white;
+    cursor: pointer;
+    text-decoration: none;
+    transition: ease .2s;
+    border: 2px solid white;
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 8px;
+}
