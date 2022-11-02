@@ -1,12 +1,12 @@
 @font-face {
   src: url(./Nunito-Light.ttf) format('ttf');
-  font-family: 'Nunito Light';
+  font-family: 'Nunito';
   font-weight: lighter;
 }
 
 @font-face {
   src: url(./Nunito-ExtraBold.ttf) format('ttf');
-  font-family: 'Nunito Bold';
+  font-family: 'Nunito';
   font-weight: bold;
 }
 
@@ -18,6 +18,6 @@
 
 @font-face {
   src: url(./Nunito-Italic.ttf) format('ttf');
-  font-family: 'Nunito Italic';
+  font-family: 'Nunito';
   font-weight: normal;
 }

@@ -1,4 +1,6 @@
-.circle {}
+.circle {
+    font-family: 'Nunito';
+}
 
 .circle__wrapper {
     width: 35rem;
@@ -37,4 +39,37 @@
     -webkit-box-shadow: -16px 1px 27px -4px rgba(90, 90, 90, 0.3);
     -moz-box-shadow: -16px 1px 27px -4px rgba(90, 90, 90, 0.3);
     box-shadow: -16px 1px 27px -4px rgba(90, 90, 90, 0.3);
+}
+
+.circle__clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+}
+
+.circle__clock {
+    font-size: 7rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.circle__button {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    transition: ease .2s;
+    border: 2px solid white;
+    padding: 15px 25px;
+    font-size: 25px;
+    border-radius: 8px;
+}
+
+.circle__button:hover {
+    color: indianred;
+    transition: ease .2s;
+    background-color: white;
+    cursor: pointer;
 }
