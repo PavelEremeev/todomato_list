@@ -72,6 +72,7 @@
     transition: ease .2s;
     background-color: white;
     cursor: pointer;
+    transform: scale(1.15);
 }
 
 
@@ -94,6 +95,7 @@
     cursor: pointer;
     transition: ease .2s;
     animation: rotate90 0.3s ease-in;
+
 }
 
 @keyframes rotate90 {

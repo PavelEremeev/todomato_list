@@ -49,7 +49,7 @@ export default function Circle({ popupToggleHandler }) {
                     }}>
                     <div className='circle__inner'>
                         <div className='circle__clock-container'>
-                            <button onClick={popupToggleHandler} className='timer__button'></button>
+                            <button onClick={popupToggleHandler} className='timer__button' />
                             <h2 className='circle__clock'>
                                 {getTime(timer)}
                             </h2>
