@@ -5,7 +5,7 @@ import './Circle.css'
 
 export default function Circle() {
 
-    const { progress, setProgress, timer, setTimer, active, setActive } = useContext(StateContext)
+    const { progress, setProgress, timer, setTimer, active, setActive, initialState } = useContext(StateContext)
 
     useEffect(() => {
         if (active && timer > 0) {
@@ -20,14 +20,22 @@ export default function Circle() {
         }
     }, [timer, active])
 
+    useEffect(() => {
+        setProgress(timer / (initialState / 100))
+    }, [setProgress, timer])
+
     const toggleTimer = () => {
         setActive(!active)
+    }
+
+    const restartTimer = () => {
+        setTimer(initialState)
+        setActive(false)
     }
 
     const getTime = (time) => {
         const minutes = Math.floor(time / 60);
         const seconds = time % 60;
-
         return `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
     }
 
@@ -44,7 +52,11 @@ export default function Circle() {
                             <h2 className='circle__clock'>
                                 {getTime(timer)}
                             </h2>
-                            <button onClick={toggleTimer} className='circle__button'>{active ? 'ПАУЗА' : 'СТАРТ'}</button>
+                            {timer === 0 ? <button onClick={restartTimer}
+                                className='circle__button'>РЕСТАРТ</button>
+                                :
+                                <button onClick={toggleTimer} className='circle__button'>
+                                    {active ? 'ПАУЗА' : 'СТАРТ'}</button>}
                         </div>
                     </div>
                 </div>

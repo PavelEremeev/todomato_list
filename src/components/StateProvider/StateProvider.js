@@ -48,7 +48,15 @@ export default function StateProvider({ children }) {
             timer,
             setTimer,
             active,
-            setActive
+            setActive,
+            initialState,
+            setInitialState,
+            shortBreakTime,
+            setShortBreakTime,
+            longBreakTime,
+            setLongBreakTime,
+            workTime,
+            setWorkTime
         }}>
         {children}
     </StateContext.Provider>
