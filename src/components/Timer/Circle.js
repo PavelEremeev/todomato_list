@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
+import { StateContext } from '../StateProvider/StateProvider';
 
 import './Circle.css'
 
 export default function Circle() {
 
-    const [progress, setProgress] = useState(55)
-    const [timer, setTimer] = useState(100);
-    const [active, setActive] = useState(false);
+    const { progress, setProgress, timer, setTimer, active, setActive } = useContext(StateContext)
 
     useEffect(() => {
         if (active && timer > 0) {
