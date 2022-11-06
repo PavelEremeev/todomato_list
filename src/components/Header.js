@@ -13,8 +13,10 @@ function Header() {
 				<img className='header__image' src={logo} alt='tomatopicture' />
 			</Link>
 			<div className='header__container'>
+				<Link to='/'>
+					<button className='header__button'>Домой</button></Link>
 				<Link to='/timer'>
-					<button className='header__button'>TODOMATO-timer</button></Link>
+					<button className='header__button'>Таймер</button></Link>
 			</div>
 		</header>
 	);

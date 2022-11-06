@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from './Header';
-import Homepage from './Homepage';
+import Timer from './Timer/Timer';
+import Homepage from './Homepage/Homepage';
 import Footer from './Footer';
 
 import './App.css';
@@ -25,7 +25,7 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				<Route path='/' element={<Homepage todo={todo} setTodo={setTodo} />} />
-				<Route path='/timer' element={<Header />} />
+				<Route path='/timer' element={<Timer />} />
 			</Routes>
 			<Footer />
 		</BrowserRouter>

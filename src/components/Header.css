@@ -16,16 +16,34 @@
 
 }
 
+
+.header__image:hover {
+	animation: rotate 0.4s linear;
+	transition: linear .2s;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 .header__title {
 	font-size: 28px;
 	margin: 0;
 	line-height: 26px;
 	font-family: 'Nunito';
+	font-weight: 900;
 }
 
 .header__image {
 	height: 22px;
 }
+
 
 .header__container {
 	margin-right: 3%;
@@ -41,6 +59,7 @@
 	padding: 8px;
 	font-size: 18px;
 	border-radius: 8px;
+	margin-left: 10px;
 }
 
 .header__button:hover {
