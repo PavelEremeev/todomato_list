@@ -3,7 +3,7 @@ import { StateContext } from '../StateProvider/StateProvider';
 
 import './Circle.css'
 
-export default function Circle() {
+export default function Circle({ popupToggleHandler }) {
 
     const { progress, setProgress, timer, setTimer, active, setActive, initialState } = useContext(StateContext)
 
@@ -49,6 +49,7 @@ export default function Circle() {
                     }}>
                     <div className='circle__inner'>
                         <div className='circle__clock-container'>
+                            <button onClick={popupToggleHandler} className='timer__button'></button>
                             <h2 className='circle__clock'>
                                 {getTime(timer)}
                             </h2>

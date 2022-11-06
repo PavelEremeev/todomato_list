@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../Header';
 import Presets from './Presets';
 
@@ -7,13 +7,20 @@ import dataDescription from '../../mock/dataDescription'
 
 import './Timer.css'
 import Circle from './Circle';
+import Popup from '../Popup/Popup';
 
 export default function Timer() {
     const presets = ['Работа', 'Короткий перерыв', 'Длинный перерыв']
+    const [isOpen, setIsOpen] = useState(false)
+
+    const popupToggleHandler = () => {
+        setIsOpen(!isOpen)
+    }
 
     return (
         <>
             <Header />
+
             <section className='timer-description'>
                 <div className='timer-description__wrapper'>
                     <div className='timer__title-wrapper'>
@@ -41,8 +48,8 @@ export default function Timer() {
                 </div>
             </section>
             <Presets presetsName={presets} />
-            <Circle />
-
+            <Circle popupToggleHandler={popupToggleHandler} />
+            <Popup isOpen={isOpen} popupToggleHandler={popupToggleHandler} />
         </>
     )
 }
