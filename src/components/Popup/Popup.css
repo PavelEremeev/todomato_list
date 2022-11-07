@@ -5,21 +5,91 @@
     top: 0;
     left: 0;
     z-index: 5;
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(255, 255, 255, 0.281);
     flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: Nunito;
+    transition: .4s ease-in-out;
 }
 
+
 .popup__wrapper {
-    width: 60%;
-    height: 40%;
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 6;
+    background-color: indianred;
+    border-radius: 8px;
+    position: relative;
+    min-width: 320px;
+    padding: 30px;
+}
+
+.popup__title {
+    font-weight: 900;
+    font-size: 24px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.popup__close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-image: url(../../images/x-mark_white.png);
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-self: center;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    transition: .2s ease-out;
+}
+
+.popup__close-button:hover {
+    opacity: 0.7;
+    transition: .2s ease-out;
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+.popup__input {
+    border: none;
+    border-bottom: 2px solid white;
+    background: none;
+    color: white;
+    outline: none;
+    font-family: 'Nunito';
+    font-size: 20px;
+    min-width: 150px;
+    resize: none;
+    margin-bottom: 15px;
+}
+
+.popup__apply-button {
+    margin-top: 20px;
+    font-family: 'Nunito';
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    transition: ease .2s;
+    border: 2px solid white;
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+.popup__apply-button:hover {
+    color: indianred;
+    transition: ease .2s;
     background-color: white;
+    cursor: pointer;
 }
