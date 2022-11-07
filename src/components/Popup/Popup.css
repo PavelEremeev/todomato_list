@@ -67,10 +67,23 @@
     color: white;
     outline: none;
     font-family: 'Nunito';
-    font-size: 20px;
-    min-width: 150px;
+    font-size: 18px;
     resize: none;
     margin-bottom: 15px;
+    width: 100%;
+
+}
+
+.popup__input::placeholder {
+    color: white;
+    font-weight: 100;
+    font-family: 'Nunito Light';
+}
+
+.popup__input:focus::placeholder {
+    opacity: 0.7;
+    transition: .2s ease-in;
+
 }
 
 .popup__apply-button {
